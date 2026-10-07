@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ====================================================================
+       WORKSHOP STEP 1: Base Structure & HTML Skeleton + Meta Configuration
+       Semantic tags: <header>, <nav>, <main>, <section>, <article>, <footer>
+       ==================================================================== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maya Sharma | Software & Robotics Engineer Portfolio</title>
+  <meta name="description" content="Portfolio of Maya Sharma - Software Engineer and Robotics Specialist. Explore projects, technical skills, career timeline, AI chat, and interactive lab demos.">
+  <meta name="author" content="Maya Sharma">
+
+  <!-- Google Fonts: Pixel Art Header Font + Clean Futuristic Reading Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700&family=Press+Start+2P&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- External Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-dark crt-active">
+  <!-- CRT Scanline Shader Overlay (Workshop Visual Enhancement) -->
+  <div id="crt-overlay" class="crt-overlay" aria-hidden="true"></div>
+  <div class="ambient-glow glow-top" aria-hidden="true"></div>
+
+  <!-- Mobile Top Bar with Hamburger (Shown only on small screens) -->
+  <div class="mobile-top-bar" id="mobile-top-bar">
+    <div class="mobile-brand">
+      <span class="pixel-icon">👾</span>
+      <span class="brand-title">MAYA.DEV</span>
+    </div>
+    <div class="mobile-actions">
+      <button id="theme-toggle-mobile" class="icon-btn" aria-label="Toggle Night Mode" title="Toggle Theme">
+        <span class="theme-icon">🌙</span>
+      </button>
+      <button id="mobile-menu-btn" class="hamburger-btn" aria-label="Open Navigation Menu" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       WORKSHOP STEP 3: Vertical Navigation Bar (Left Side of the Screen)
+       Links: Home, About Me, Skills, Timeline, Projects, Highlights, Testimonials, Chat, Contact
+       Responsive, accessible with ARIA labels and pixel aesthetic
+       ==================================================================== -->
+  <aside id="vertical-nav" class="vertical-navbar" aria-label="Main Navigation">
+    <div class="nav-header">
+      <a href="#hero" class="nav-brand">
+        <div class="brand-avatar">
+          <span class="avatar-pixel">🤖</span>
+          <span class="status-indicator" title="Status: Online & Ready"></span>
+        </div>
+        <div class="brand-meta">
+          <span class="brand-name">MAYA SHARMA</span>
+          <span class="brand-tag">SYS::ONLINE // v2.6</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Quick Controls: Night Mode Toggle + 8-bit Audio + CRT Filter -->
+    <div class="nav-controls-box">
+      <!-- WORKSHOP STEP 2: Night Mode Toggle Placeholder & Implementation -->
+      <button id="theme-toggle" class="control-btn" title="Toggle Day / Night Mode" aria-label="Toggle Night Mode">
+        <span class="ctrl-icon" id="theme-icon">🌙</span>
+        <span class="ctrl-text" id="theme-text">NIGHT MODE</span>
+      </button>
+      <button id="sfx-toggle" class="control-btn" title="Toggle 8-bit Retro Audio SFX" aria-label="Toggle Retro SFX">
+        <span class="ctrl-icon" id="sfx-icon">🔊</span>
+        <span class="ctrl-text" id="sfx-text">SFX: ON</span>
+      </button>
+      <button id="crt-toggle" class="control-btn active" title="Toggle CRT Scanline Effect" aria-label="Toggle CRT Effect">
+        <span class="ctrl-icon">📺</span>
+        <span class="ctrl-text" id="crt-text">CRT: ON</span>
+      </button>
+    </div>
+
+    <!-- Primary Vertical Navigation Links (All 8 Required Items) -->
+    <nav class="nav-menu">
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a href="#hero" class="nav-link active" data-nav="hero">
+            <span class="nav-pixel-icon">🏠</span>
+            <span class="nav-label">Home</span>
+            <span class="nav-pointer">▶</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#about" class="nav-link" data-nav="about">
+            <span class="nav-pixel-icon">👤</span>
+            <span class="nav-label">About Me</span>
+            <span class="nav-pointer">▶</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#skills" class="nav-link" data-nav="skills">
+            <span class="nav-pixel-icon">⚡</span>
+            <span class="nav-label">Skills</span>
+            <span class="nav-pointer">▶</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#timeline" class="nav-link" data-nav="timeline">
+            <span class="nav-pixel-icon">⏳</span>
+            <span class="nav-label">Timeline</span>
+            <span class="nav-pointer">▶</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#projects" class="nav-link" data-nav="projects">
+            <span class="nav-pixel-icon">🚀</span>
+            <span class="nav-label">Projects</span>
+            <span class="nav-pointer">▶</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#video-highlight" class="nav-link" data-nav="video-highlight">
+            <span class="nav-pixel-icon">🎬</span>
+            <span class="nav-label">Highlights</span>
+            <span class="nav-pointer">▶</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#testimonials" class="nav-link" data-nav="testimonials">
+            <span class="nav-pixel-icon">💬</span>
+            <span class="nav-label">Testimonials</span>
+            <span class="nav-pointer">▶</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#chat" class="nav-link" data-nav="chat">
+            <span class="nav-pixel-icon">🧠</span>
+            <span class="nav-label">AI Chat</span>
+            <span class="nav-badge">NEW</span>
+            <span class="nav-pointer">▶</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#contact" class="nav-link" data-nav="contact">
+            <span class="nav-pixel-icon">✉️</span>
+            <span class="nav-label">Contact</span>
+            <span class="nav-pointer">▶</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Nav Footer Quick Link -->
+    <div class="nav-footer-cta">
+      <a href="#contact" class="btn-pixel-cta">
+        <span>TRANSMIT →</span>
+      </a>
+      <span class="nav-sys-ver">PORTFOLIO v2026.10</span>
+    </div>
+  </aside>
+
+  <!-- Mobile Backdrop Overlay when Drawer is open -->
+  <div id="nav-backdrop" class="nav-backdrop" aria-hidden="true"></div>
+
+  <!-- ====================================================================
+       MAIN CONTENT CONTAINER (Offset from vertical navbar on desktop)
+       ==================================================================== -->
+  <div class="content-wrapper">
+    <main>
+      <!-- ==============================================================
+           WORKSHOP STEP 2: Hero Section with Pixel Art & Night Mode Toggle
+           Welcomes visitors with title, brief tagline, pixel background image,
+           and interactive HUD elements.
+           ============================================================== -->
+      <section id="hero" class="hero-section" aria-label="Hero Introduction">
+        <div class="hero-backdrop">
+          <!-- Pixel Art Background Image Container -->
+          <div class="hero-image-frame">
+            <img id="hero-img-display" src="hero_engineering_student.jpg" alt="Maya Sharma engineering autonomous rover at golden sunset workbench in pixel art style" class="hero-bg-img">
+            <div class="hero-scanlines-tint"></div>
+            <div class="hero-gradient-overlay"></div>
+          </div>
+
+          <!-- Floating Interactive HUD Badges over the artwork -->
+          <div class="hud-pin pin-engineer" style="top: 25%; left: 32%;">
+            <span class="pulse-ring"></span>
+            <div class="hud-tooltip">
+              <span class="tooltip-label">LEAD DEVELOPER</span>
+              <span class="tooltip-sub">Maya S. • CSE & Robotics</span>
+            </div>
+          </div>
+
+          <div class="hud-pin pin-rover" style="top: 68%; left: 36%;">
+            <span class="pulse-ring"></span>
+            <div class="hud-tooltip">
+              <span class="tooltip-label">ROVER NOVA v2.4</span>
+              <span class="tooltip-sub">ROS2 • LiDAR • SlamNav</span>
+            </div>
+          </div>
+
+          <div class="hud-pin pin-sunset" style="top: 32%; left: 48%;">
+            <span class="pulse-ring"></span>
+            <div class="hud-tooltip">
+              <span class="tooltip-label">NEO-METROPOLIS LAB</span>
+              <span class="tooltip-sub">Sunset Innovation Hub</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating Glassmorphic Hero Information Box -->
+        <div class="hero-foreground-card">
+          <div class="terminal-bar">
+            <div class="terminal-dots">
+              <span class="tdot tdot-red"></span>
+              <span class="tdot tdot-yellow"></span>
+              <span class="tdot tdot-green"></span>
+            </div>
+            <span class="terminal-title">SYS://MAYA_CORE.RUN</span>
+            <span class="terminal-badge">READY</span>
+          </div>
+
+          <div class="hero-intro">
+            <span class="hero-greeting">HELLO WORLD // I AM</span>
+            <h1 class="hero-title">MAYA SHARMA</h1>
+            <p class="hero-subtitle">SOFTWARE ENGINEER & ROBOTICS SPECIALIST</p>
+            <p class="hero-tagline">
+              “Architecting resilient software, intelligent robotics algorithms, and full-stack telemetry systems that bridge virtual code with physical reality.”
+            </p>
+          </div>
+
+          <!-- Hero Action Buttons -->
+          <div class="hero-actions">
+            <a href="#projects" class="btn-pixel primary">
+              <span class="btn-text">EXPLORE PROJECTS</span>
+              <span class="btn-icon">⚡</span>
+            </a>
+            <a href="#chat" class="btn-pixel secondary">
+              <span class="btn-text">TALK TO AI MAYA</span>
+              <span class="btn-icon">💬</span>
+            </a>
+          </div>
+
+          <!-- Interactive Scene Selector (Switch between provided pixel art backgrounds) -->
+          <div class="scene-switcher">
+            <span class="switcher-label">SELECT LAB VIEWPORT:</span>
+            <div class="switcher-buttons">
+              <button class="scene-btn active" data-scene="hero_engineering_student.jpg" title="Sunset Rover Workbench">1. Sunset Workbench</button>
+              <button class="scene-btn" data-scene="hero_cinematic_projects.jpg" title="Soldering & Arm Station">2. Robotics Station</button>
+              <button class="scene-btn" data-scene="lab_holographic_tech.jpg" title="Holographic Diagnostic Bay">3. Holo Bay</button>
+              <button class="scene-btn" data-scene="hero_project_nova.jpg" title="Project Nova Terminal">4. Nova Console</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================================================
+           WORKSHOP STEP 4: About Me Section with Profile & Bio
+           Profile image, short bio, career highlights, and personal interests.
+           ============================================================== -->
+      <section id="about" class="section-wrapper" aria-label="About Me">
+        <div class="section-tag">
+          <span class="tag-bracket">[</span> SECTION 01 <span class="tag-bracket">]</span>
+        </div>
+        <h2 class="section-heading">ABOUT ME <span class="sub-accent">// IDENTITY & VISION</span></h2>
+        <p class="section-summary">Bridging high-performance software engineering with real-world embedded robotics.</p>
+
+        <div class="about-grid">
+          <!-- Left: Pixel Art Character Portrait Frame -->
+          <div class="profile-card">
+            <div class="avatar-frame">
+              <img src="about_me_engineer_portrait.jpg" alt="Maya Sharma profile portrait holding glowing microcontroller in engineering laboratory" class="profile-avatar-img">
+              <div class="corner-bracket cb-tl"></div>
+              <div class="corner-bracket cb-tr"></div>
+              <div class="corner-bracket cb-bl"></div>
+              <div class="corner-bracket cb-br"></div>
+              <div class="avatar-hud-badge">
+                <span class="hud-icon">🆔</span>
+                <span class="hud-id">ENG::MAYA-882</span>
+              </div>
+            </div>
+
+            <!-- Profile Meta Specs -->
+            <div class="profile-specs">
+              <div class="spec-entry">
+                <span class="spec-key">DISCIPLINE:</span>
+                <span class="spec-val cyan">Computer Science & Robotics</span>
+              </div>
+              <div class="spec-entry">
+                <span class="spec-key">PRIMARY FOCUS:</span>
+                <span class="spec-val purple">Autonomous Nav & Distributed Systems</span>
+              </div>
+              <div class="spec-entry">
+                <span class="spec-key">LOCATION:</span>
+                <span class="spec-val orange">Bangalore / Hybrid & Global</span>
+              </div>
+              <div class="spec-entry">
+                <span class="spec-key">CURRENT STATUS:</span>
+                <span class="spec-val green">● Open for Engineering Roles & Labs</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Comprehensive Bio, Highlights, and Engineering Statistics -->
+          <div class="bio-panel">
+            <div class="glass-card bio-inner">
+              <h3 class="bio-title">ENGINEERING WITH PURPOSE & RIGOR</h3>
+              <p class="bio-text">
+                I am a software engineer and robotics developer driven by the thrill of turning mathematical theory and clean architecture into tangible autonomous machines. My work spans the full stack: from writing low-latency real-time control algorithms in C++ and Python on microcontrollers, to architecting cloud-connected telemetry interfaces with modern JavaScript and WebSockets.
+              </p>
+              <p class="bio-text">
+                When I am not tuning sensor fusion matrices or debugging logic analyzer traces at the workbench, you can find me contributing to open-source robotics tools, mentoring hackathon teams, and building retro-style interactive web experiments.
+              </p>
+
+              <!-- Personal Interests & Core Competencies Chips -->
+              <div class="interest-chip-list">
+                <span class="chip">🤖 Autonomous Mobile Robots</span>
+                <span class="chip">⚡ Real-Time Embedded Systems</span>
+                <span class="chip">👁️ Computer Vision & OpenCV</span>
+                <span class="chip">🌐 Distributed Full-Stack Systems</span>
+                <span class="chip">🔧 Rapid Hardware Prototyping</span>
+              </div>
+
+              <!-- Statistics Counter Grid -->
+              <div class="stats-counter-grid">
+                <div class="stat-cell">
+                  <span class="stat-number cyan">18+</span>
+                  <span class="stat-label">PROJECTS COMPLETED</span>
+                  <span class="stat-sub">Hardware & Cloud Apps</span>
+                </div>
+                <div class="stat-cell">
+                  <span class="stat-number purple">15+</span>
+                  <span class="stat-label">TECH STACK TOOLS</span>
+                  <span class="stat-sub">Languages & Frameworks</span>
+                </div>
+                <div class="stat-cell">
+                  <span class="stat-number orange">6+</span>
+                  <span class="stat-label">HACKATHONS WON</span>
+                  <span class="stat-sub">National & Collegiate</span>
+                </div>
+                <div class="stat-cell">
+                  <span class="stat-number green">99.8%</span>
+                  <span class="stat-label">SYSTEM UPTIME</span>
+                  <span class="stat-sub">Field Tested Robots</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================================================
+           WORKSHOP STEP 5: Skills Section
+           Highlights core competencies (languages, frameworks, tools) using
+           progress bars, icons, styled lists, and pixel art aesthetic.
+           Includes comments explaining each technical skill element.
+           ============================================================== -->
+      <section id="skills" class="section-wrapper" aria-label="Technical Skills">
+        <div class="section-tag">
+          <span class="tag-bracket">[</span> SECTION 02 <span class="tag-bracket">]</span>
+        </div>
+        <h2 class="section-heading">TECHNICAL SKILLS <span class="sub-accent">// PROFICIENCY & ARSENAL</span></h2>
+        <p class="section-summary">Core competencies across high-level software engineering, embedded systems, and robotics frameworks.</p>
+
+        <div class="skills-card-grid">
+          <!-- SKILL CATEGORY 1: Core Programming Languages -->
+          <!-- Represents foundational algorithmic problem solving and low-latency systems -->
+          <article class="skill-category-card">
+            <div class="skill-cat-header">
+              <span class="skill-cat-icon">⌨️</span>
+              <div>
+                <h3 class="skill-cat-title">PROGRAMMING</h3>
+                <span class="skill-cat-sub">ALGORITHMS & ARCHITECTURE</span>
+              </div>
+            </div>
+            <div class="skill-items-list">
+              <!-- Python: Primary language for robotics simulations, OpenCV, and AI -->
+              <div class="skill-row">
+                <div class="skill-row-meta">
+                  <span class="skill-name">Python (PyTorch / ROS2 / Async)</span>
+                  <span class="skill-percent">95%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill fill-cyan" style="width: 95%;"></div>
+                </div>
+              </div>
+
+              <!-- C++: Crucial for high-performance firmware and real-time robotic nodes -->
+              <div class="skill-row">
+                <div class="skill-row-meta">
+                  <span class="skill-name">C++ (Modern C++17/20, STL, Real-Time)</span>
+                  <span class="skill-percent">90%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill fill-cyan" style="width: 90%;"></div>
+                </div>
+              </div>
+
+              <!-- JavaScript / TypeScript: Powers dynamic web apps and telemetry dashboards -->
+              <div class="skill-row">
+                <div class="skill-row-meta">
+                  <span class="skill-name">JavaScript & TypeScript</span>
+                  <span class="skill-percent">88%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill fill-cyan" style="width: 88%;"></div>
+                </div>
+              </div>
+
+              <!-- Java & Data Structures: Strong algorithmic foundations -->
+              <div class="skill-row">
+                <div class="skill-row-meta">
+                  <span class="skill-name">Java & Data Structures / Algorithms</span>
+                  <span class="skill-percent">85%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill fill-cyan" style="width: 85%;"></div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- SKILL CATEGORY 2: Robotics & Autonomous Systems -->
+          <!-- Represents domain expertise in mobile navigation, SLAM, and kinematics -->
+          <article class="skill-category-card">
+            <div class="skill-cat-header">
+              <span class="skill-cat-icon">🤖</span>
+              <div>
+                <h3 class="skill-cat-title">ROBOTICS & AI</h3>
+                <span class="skill-cat-sub">AUTONOMY & SENSOR FUSION</span>
+              </div>
+            </div>
+            <div class="skill-items-list">
+              <!-- ROS2: Standard middleware for autonomous robotics communication -->
+              <div class="skill-row">
+                <div class="skill-row-meta">
+                  <span class="skill-name">ROS2 Humble / Nav2 / DDS</span>
+                  <span class="skill-percent">92%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill fill-purple" style="width: 92%;"></div>
+                </div>
+              </div>
+
+              <!-- Computer Vision: Object detection, camera calibration, and depth processing -->
+              <div class="skill-row">
+                <div class="skill-row-meta">
+                  <span class="skill-name">Computer Vision (OpenCV, YOLO)</span>
+                  <span class="skill-percent">87%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill fill-purple" style="width: 87%;"></div>
+                </div>
+              </div>
+
+              <!-- LiDAR SLAM: Mapping and localization in dynamic environments -->
+              <div class="skill-row">
+                <div class="skill-row-meta">
+                  <span class="skill-name">LiDAR SLAM & Path Planning (A*, RRT)</span>
+                  <span class="skill-percent">86%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill fill-purple" style="width: 86%;"></div>
+                </div>
+              </div>
+
+              <!-- Kinematics & PID Tuning: Motor control and arm trajectory execution -->
+              <div class="skill-row">
+                <div class="skill-row-meta">
+                  <span class="skill-name">Inverse Kinematics & PID Control</span>
+                  <span class="skill-percent">84%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill fill-purple" style="width: 84%;"></div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- SKILL CATEGORY 3: Embedded Systems & Electronics -->
+          <!-- Represents low-level hardware prototyping and circuit design -->
+          <article class="skill-category-card">
+            <div class="skill-cat-header">
+              <span class="skill-cat-icon">⚡</span>
+              <div>
+                <h3 class="skill-cat-title">EMBEDDED HARDWARE</h3>
+                <span class="skill-cat-sub">CIRCUITS & MICROCONTROLLERS</span>
+              </div>
+            </div>
+            <div class="skill-items-list">
+              <!-- Microcontrollers: ESP32, STM32, Arduino, ARM Cortex -->
+              <div class="skill-row">
+                <div class="skill-row-meta">
+                  <span class="skill-name">ESP32 / STM32 / Raspberry Pi</span>
+                  <span class="skill-percent">91%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill fill-orange" style="width: 91%;"></div>
+                </div>
+              </div>
+
+              <!-- Communication Protocols: Hardware bus interfacing -->
+              <div class="skill-row">
+                <div class="skill-row-meta">
+                  <span class="skill-name">Protocols (CAN Bus, I2C, SPI, UART)</span>
+                  <span class="skill-percent">89%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill fill-orange" style="width: 89%;"></div>
+                </div>
+              </div>
+
+              <!-- PCB & CAD Design: Hardware schematic layout -->
+              <div class="skill-row">
+                <div class="skill-row-meta">
+                  <span class="skill-name">KiCAD PCB Design & Fusion 360 CAD</span>
+                  <span class="skill-percent">83%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill fill-orange" style="width: 83%;"></div>
+                </div>
+              </div>
+
+              <!-- Hardware Debugging: Oscilloscopes and logic analyzers -->
+              <div class="skill-row">
+                <div class="skill-row-meta">
+                  <span class="skill-name">Oscilloscopes & Logic Debugging</span>
+                  <span class="skill-percent">86%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill fill-orange" style="width: 86%;"></div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- SKILL CATEGORY 4: Web & Full-Stack Telemetry -->
+          <!-- Represents modern interactive web interfaces and real-time data streaming -->
+          <article class="skill-category-card">
+            <div class="skill-cat-header">
+              <span class="skill-cat-icon">🌐</span>
+              <div>
+                <h3 class="skill-cat-title">WEB & CLOUD</h3>
+                <span class="skill-cat-sub">TELEMETRY & FULL STACK</span>
+              </div>
+            </div>
+            <div class="skill-items-list">
+              <!-- Frontend: Responsive interfaces and state management -->
+              <div class="skill-row">
+                <div class="skill-row-meta">
+                  <span class="skill-name">HTML5 / CSS3 / React / Next.js</span>
+                  <span class="skill-percent">93%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill fill-green" style="width: 93%;"></div>
+                </div>
+              </div>
+
+              <!-- Backend: High-concurrency servers and WebSockets -->
+              <div class="skill-row">
+                <div class="skill-row-meta">
+                  <span class="skill-name">Node.js / Express / WebSockets</span>
+                  <span class="skill-percent">89%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill fill-green" style="width: 89%;"></div>
+                </div>
+              </div>
+
+              <!-- Cloud IoT: MQTT message brokers and sensor pipelines -->
+              <div class="skill-row">
+                <div class="skill-row-meta">
+                  <span class="skill-name">MQTT Brokers / REST APIs / Docker</span>
+                  <span class="skill-percent">86%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill fill-green" style="width: 86%;"></div>
+                </div>
+              </div>
+
+              <!-- Version Control & CI/CD -->
+              <div class="skill-row">
+                <div class="skill-row-meta">
+                  <span class="skill-name">Git / GitHub Actions / Linux CLI</span>
+                  <span class="skill-percent">94%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill fill-green" style="width: 94%;"></div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ==============================================================
+           WORKSHOP STEP 6: Interactive Timeline of Career Milestones
+           Beneath the Skills section. Lists key events (education, major projects,
+           hackathons, milestones) using rounded pixel cards with hover effects.
+           ============================================================== -->
+      <section id="timeline" class="section-wrapper" aria-label="Career Milestones Timeline">
+        <div class="section-tag">
+          <span class="tag-bracket">[</span> SECTION 03 <span class="tag-bracket">]</span>
+        </div>
+        <h2 class="section-heading">CAREER TIMELINE <span class="sub-accent">// MILESTONES & EXP</span></h2>
+        <p class="section-summary">Sequential log of academic achievements, major engineering prototypes, and leadership roles.</p>
+
+        <div class="timeline-container">
+          <!-- Central glowing spine line -->
+          <div class="timeline-spine" aria-hidden="true"></div>
+
+          <!-- Timeline Event 1: 2026 -->
+          <div class="timeline-item">
+            <div class="timeline-node">
+              <span class="node-dot"></span>
+              <span class="node-year">2026</span>
+            </div>
+            <div class="timeline-card">
+              <div class="card-badge cyan">FLAGSHIP MILESTONE</div>
+              <h3 class="card-milestone-title">Project Nova: Autonomous Rover v2.4 Deployment</h3>
+              <span class="card-institution">Autonomous Systems Research Lab</span>
+              <p class="card-desc">
+                Spearheaded the complete software & hardware architecture of an autonomous exploration rover. Integrated ROS2 Humble with onboard 2D LiDAR SLAM, dual stereo camera vision, and custom motor controllers, achieving autonomous waypoint navigation in unstructured terrains.
+              </p>
+              <div class="timeline-tags">
+                <span class="t-tag">ROS2</span>
+                <span class="t-tag">LiDAR SLAM</span>
+                <span class="t-tag">Embedded C++</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline Event 2: 2025 -->
+          <div class="timeline-item">
+            <div class="timeline-node">
+              <span class="node-dot"></span>
+              <span class="node-year">2025</span>
+            </div>
+            <div class="timeline-card">
+              <div class="card-badge purple">HACKATHON WINNER</div>
+              <h3 class="card-milestone-title">1st Place • Smart Systems National Hackathon</h3>
+              <span class="card-institution">National Institute of Technology</span>
+              <p class="card-desc">
+                Engineered BenchSync: a real-time IoT workbench telemetry station within 36 hours. Connected ambient temperature, hazardous solder fume sensors, and power consumption meters to a live WebSockets dashboard for automated laboratory hazard alerts.
+              </p>
+              <div class="timeline-tags">
+                <span class="t-tag">ESP32</span>
+                <span class="t-tag">WebSockets</span>
+                <span class="t-tag">Node.js</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline Event 3: 2024 -->
+          <div class="timeline-item">
+            <div class="timeline-node">
+              <span class="node-dot"></span>
+              <span class="node-year">2024</span>
+            </div>
+            <div class="timeline-card">
+              <div class="card-badge orange">INTERNSHIP</div>
+              <h3 class="card-milestone-title">Robotics Software Engineering Intern</h3>
+              <span class="card-institution">AeroRobotics Dynamics</span>
+              <p class="card-desc">
+                Developed computer vision inspection pipelines for quality assurance on industrial automation lines using OpenCV and Python. Optimized image acquisition latency by 42% through multithreaded frame buffering and hardware triggers.
+              </p>
+              <div class="timeline-tags">
+                <span class="t-tag">Python</span>
+                <span class="t-tag">OpenCV</span>
+                <span class="t-tag">Industrial Automation</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline Event 4: 2023 -->
+          <div class="timeline-item">
+            <div class="timeline-node">
+              <span class="node-dot"></span>
+              <span class="node-year">2023</span>
+            </div>
+            <div class="timeline-card">
+              <div class="card-badge green">ACADEMIC EXCELLENCE</div>
+              <h3 class="card-milestone-title">B.Tech in Computer Science & Engineering (Robotics Minor)</h3>
+              <span class="card-institution">Department of CSE • Honors Student</span>
+              <p class="card-desc">
+                Enrolled with academic scholarship. Founded the collegiate Robotics & Open-Source Software Guild, coordinating workshops on Arduino firmware, Linux kernel basics, and version control for over 150 student members.
+              </p>
+              <div class="timeline-tags">
+                <span class="t-tag">Algorithms</span>
+                <span class="t-tag">Computer Architecture</span>
+                <span class="t-tag">Guild Lead</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================================================
+           WORKSHOP STEP 7: Projects Section with Clickable Thumbnails
+           Displays project thumbnails with hover effects and detailed modal views.
+           Code comments explain how each thumbnail connects to project details.
+           ============================================================== -->
+      <section id="projects" class="section-wrapper" aria-label="Featured Projects">
+        <div class="section-tag">
+          <span class="tag-bracket">[</span> SECTION 04 <span class="tag-bracket">]</span>
+        </div>
+        <h2 class="section-heading">FEATURED PROJECTS <span class="sub-accent">// HARDWARE & CODE</span></h2>
+        <p class="section-summary">Click any project thumbnail or button to inspect detailed schematics, architecture, and telemetry data.</p>
+
+        <div class="projects-grid">
+          <!-- PROJECT CARD 1: Project Nova (Autonomous Rover) -->
+          <!-- Connected to modal via data-project="nova" and openProjectModal('nova') -->
+          <article class="project-card">
+            <div class="project-thumbnail" onclick="openProjectModal('nova')">
+              <img src="lab_holographic_tech.jpg" alt="Autonomous Rover Nova with Holographic Diagnostic UI" class="thumb-img" loading="lazy">
+              <div class="thumb-overlay">
+                <span class="thumb-btn">INSPECT SCHEMATIC ↗</span>
+              </div>
+              <span class="proj-badge-top cyan">AUTONOMOUS MOBILE ROBOT</span>
+            </div>
+            <div class="project-info">
+              <div class="proj-date">2026 // FLAGSHIP</div>
+              <h3 class="proj-name">Project Nova: Autonomous Rover</h3>
+              <p class="proj-summary">
+                Four-wheel differential-drive autonomous exploration robot with onboard LiDAR SLAM, ROS2 Humble navigation stack, and computer vision obstacle tracking.
+              </p>
+              <div class="proj-pills">
+                <span>ROS2</span>
+                <span>LiDAR</span>
+                <span>Python</span>
+                <span>ESP32</span>
+              </div>
+              <div class="proj-actions">
+                <button class="btn-inspect" onclick="openProjectModal('nova')">DETAILS & CAD ↗</button>
+                <a href="#video-highlight" class="btn-demo-link">VIDEO DEMO ◈</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT CARD 2: 6-DOF Robotic Arm Manipulator -->
+          <!-- Connected to modal via data-project="arm" and openProjectModal('arm') -->
+          <article class="project-card">
+            <div class="project-thumbnail" onclick="openProjectModal('arm')">
+              <img src="hero_cinematic_projects.jpg" alt="6-DOF Desktop Robotic Arm Assembly Station" class="thumb-img" loading="lazy">
+              <div class="thumb-overlay">
+                <span class="thumb-btn">INSPECT SCHEMATIC ↗</span>
+              </div>
+              <span class="proj-badge-top purple">MECHATRONICS & KINEMATICS</span>
+            </div>
+            <div class="project-info">
+              <div class="proj-date">2025 // HARDWARE</div>
+              <h3 class="proj-name">6-DOF Precision Robotic Manipulator</h3>
+              <p class="proj-summary">
+                Desktop robotic arm utilizing closed-loop stepper motors, 3D-printed harmonic drives, and real-time inverse kinematics calculations on an STM32 MCU.
+              </p>
+              <div class="proj-pills">
+                <span>C++</span>
+                <span>STM32</span>
+                <span>Inverse Kinematics</span>
+                <span>Fusion 360</span>
+              </div>
+              <div class="proj-actions">
+                <button class="btn-inspect" onclick="openProjectModal('arm')">DETAILS & CAD ↗</button>
+                <a href="#contact" class="btn-demo-link">SPECS SHEET ◈</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT CARD 3: BenchSync Smart Lab Hub -->
+          <!-- Connected to modal via data-project="bench" and openProjectModal('bench') -->
+          <article class="project-card">
+            <div class="project-thumbnail" onclick="openProjectModal('bench')">
+              <img src="lab_sunset_workspace.jpg" alt="Smart Workbench Instrumentation Hub" class="thumb-img" loading="lazy">
+              <div class="thumb-overlay">
+                <span class="thumb-btn">INSPECT SCHEMATIC ↗</span>
+              </div>
+              <span class="proj-badge-top orange">FULL-STACK IOT</span>
+            </div>
+            <div class="project-info">
+              <div class="proj-date">2025 // IOT CLOUD</div>
+              <h3 class="proj-name">BenchSync: Smart Lab Station</h3>
+              <p class="proj-summary">
+                Connected electronics laboratory management hub streaming fume toxicity, temperature, and power metrics to a real-time reactive WebSockets dashboard.
+              </p>
+              <div class="proj-pills">
+                <span>WebSockets</span>
+                <span>Node.js</span>
+                <span>ESP32</span>
+                <span>Chart.js</span>
+              </div>
+              <div class="proj-actions">
+                <button class="btn-inspect" onclick="openProjectModal('bench')">DETAILS & CAD ↗</button>
+                <a href="#contact" class="btn-demo-link">GITHUB REPO ◈</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT CARD 4: HoloVision Diagnostic Console -->
+          <!-- Connected to modal via data-project="holovision" and openProjectModal('holovision') -->
+          <article class="project-card">
+            <div class="project-thumbnail" onclick="openProjectModal('holovision')">
+              <img src="hero_project_nova.jpg" alt="HoloVision Diagnostic and Telemetry Terminal" class="thumb-img" loading="lazy">
+              <div class="thumb-overlay">
+                <span class="thumb-btn">INSPECT SCHEMATIC ↗</span>
+              </div>
+              <span class="proj-badge-top green">TELEMETRY & UI</span>
+            </div>
+            <div class="project-info">
+              <div class="proj-date">2026 // CYBERPUNK UI</div>
+              <h3 class="proj-name">HoloVision Telemetry Terminal</h3>
+              <p class="proj-summary">
+                High-performance WebGL & Canvas dashboard rendering real-time 3D LiDAR point clouds and live robot health telemetry in a retro cyberpunk HUD interface.
+              </p>
+              <div class="proj-pills">
+                <span>WebGL</span>
+                <span>Three.js</span>
+                <span>MQTT</span>
+                <span>TypeScript</span>
+              </div>
+              <div class="proj-actions">
+                <button class="btn-inspect" onclick="openProjectModal('holovision')">DETAILS & CAD ↗</button>
+                <a href="#chat" class="btn-demo-link">ASK AI ABOUT IT ◈</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ==============================================================
+           WORKSHOP STEP 8: Embedded YouTube Video Section
+           Dedicated section for portfolio highlight / video introduction.
+           Responsive with aspect-ratio: 16/9, pixel-art frame, and caption.
+           ============================================================== -->
+      <section id="video-highlight" class="section-wrapper" aria-label="Video Highlight">
+        <div class="section-tag">
+          <span class="tag-bracket">[</span> SECTION 05 <span class="tag-bracket">]</span>
+        </div>
+        <h2 class="section-heading">DEMO HIGHLIGHT <span class="sub-accent">// FIELD TEST & DEMO</span></h2>
+        <p class="section-summary">Watch an introductory demonstration of autonomous robotics telemetry and algorithms in action.</p>
+
+        <div class="video-display-card">
+          <!-- Pixel CRT Monitor Frame -->
+          <div class="crt-monitor-bezel">
+            <div class="monitor-header">
+              <span class="mon-led"></span>
+              <span class="mon-title">CRT_CHANNEL_01 // ROVER_SLAM_TELEMETRY.MP4</span>
+              <span class="mon-resolution">1080p HD // 60FPS</span>
+            </div>
+
+            <!-- Responsive Video Container (Aspect Ratio 16:9) -->
+            <div class="video-responsive-wrapper">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?autoplay=0&rel=0&modestbranding=1" 
+                title="Maya Sharma - Engineering Highlights & Autonomous Robotics Demo" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen 
+                class="responsive-iframe"
+                loading="lazy">
+              </iframe>
+            </div>
+
+            <div class="monitor-controls">
+              <div class="monitor-knobs">
+                <span class="knob"></span>
+                <span class="knob"></span>
+              </div>
+              <div class="monitor-status-text">SIGNAL: LOCKED • 100% QUALITY</div>
+            </div>
+          </div>
+
+          <!-- Video Caption Explaining Content -->
+          <div class="video-caption-box">
+            <span class="caption-badge">VIDEO BRIEF</span>
+            <h3 class="caption-title">Field Demonstration: Autonomous LiDAR SLAM & Kinematics Control</h3>
+            <p class="caption-text">
+              This highlight reel showcases the real-time sensor fusion and SLAM navigation routines running on Rover Nova v2.4. Watch how 2D LiDAR point clouds are processed in ROS2 to avoid dynamic obstacles in unstructured laboratory conditions.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================================================
+           ENGINEERING LAB ARCHIVE: Fullscreen Gallery Section
+           Inspect high-res 16-bit visual assets generated for this portfolio.
+           ============================================================== -->
+      <section id="lab-gallery" class="section-wrapper" aria-label="Laboratory Visual Archive">
+        <div class="section-tag">
+          <span class="tag-bracket">[</span> SECTION 06 <span class="tag-bracket">]</span>
+        </div>
+        <h2 class="section-heading">LAB ARCHIVE <span class="sub-accent">// 16-BIT VISUAL ASSETS</span></h2>
+        <p class="section-summary">Interactive pixel-art gallery of engineering workspaces and project blueprints.</p>
+
+        <div class="gallery-grid">
+          <div class="gallery-card" onclick="expandImage('hero_engineering_student.jpg', 'Hero Scene: Student Engineer at Sunset Workbench')">
+            <img src="hero_engineering_student.jpg" alt="Student Engineer Designing Robot at Golden Sunset" loading="lazy">
+            <div class="gallery-info">
+              <span class="gal-tag">RENDER 01</span>
+              <h4>Student Engineer at Sunset Workbench</h4>
+              <span class="gal-zoom">Inspect Fullscreen ↗</span>
+            </div>
+          </div>
+
+          <div class="gallery-card" onclick="expandImage('about_me_engineer_portrait.jpg', 'Character Close-Up: Maya Sharma with Circuit Board')">
+            <img src="about_me_engineer_portrait.jpg" alt="Character Portrait holding Microcontroller" loading="lazy">
+            <div class="gallery-info">
+              <span class="gal-tag">RENDER 02</span>
+              <h4>Maya Sharma with Glowing Microcontroller</h4>
+              <span class="gal-zoom">Inspect Fullscreen ↗</span>
+            </div>
+          </div>
+
+          <div class="gallery-card" onclick="expandImage('lab_holographic_tech.jpg', 'Robotics Lab: Holographic Blueprints & Diagnostics')">
+            <img src="lab_holographic_tech.jpg" alt="Robotics Lab with Holographic Blueprints" loading="lazy">
+            <div class="gallery-info">
+              <span class="gal-tag">RENDER 03</span>
+              <h4>Holographic Diagnostics & Rover Bay</h4>
+              <span class="gal-zoom">Inspect Fullscreen ↗</span>
+            </div>
+          </div>
+
+          <div class="gallery-card" onclick="expandImage('hero_cinematic_projects.jpg', 'Cinematic Workspace: Solder Station & Robotic Arm')">
+            <img src="hero_cinematic_projects.jpg" alt="Soldering Station with Robotic Arm" loading="lazy">
+            <div class="gallery-info">
+              <span class="gal-tag">RENDER 04</span>
+              <h4>Solder Station, Rover & City Sunset</h4>
+              <span class="gal-zoom">Inspect Fullscreen ↗</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================================================
+           WORKSHOP STEP 9: Testimonials Section
+           Card-like containers with subtle drop shadow, rounded corners,
+           quotes or feedback from professors, mentors, and peers.
+           ============================================================== -->
+      <section id="testimonials" class="section-wrapper" aria-label="Testimonials & Recommendations">
+        <div class="section-tag">
+          <span class="tag-bracket">[</span> SECTION 07 <span class="tag-bracket">]</span>
+        </div>
+        <h2 class="section-heading">TESTIMONIALS <span class="sub-accent">// PEERS & MENTORS</span></h2>
+        <p class="section-summary">Endorsements from research directors, hackathon mentors, and engineering collaborators.</p>
+
+        <div class="testimonials-grid">
+          <!-- Testimonial Card 1 -->
+          <article class="testimonial-card">
+            <div class="quote-mark">“</div>
+            <p class="testimonial-body">
+              Maya demonstrates an extraordinary blend of algorithmic discipline and physical hardware intuition. Her work on Rover Nova's LiDAR SLAM localization pipeline demonstrated maturity and reliability rarely seen at the collegiate level.
+            </p>
+            <div class="author-block">
+              <div class="author-avatar-pixel">🎓</div>
+              <div class="author-meta">
+                <span class="author-name">Dr. Vikram Raman</span>
+                <span class="author-role">Director, Autonomous Systems Lab</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Testimonial Card 2 -->
+          <article class="testimonial-card">
+            <div class="quote-mark">“</div>
+            <p class="testimonial-body">
+              During the Smart Systems Hackathon, Maya led our team from idea to a working prototype in under 36 hours. Her clean full-stack code and calmness under tight deadlines was the definitive factor that secured our first place win!
+            </p>
+            <div class="author-block">
+              <div class="author-avatar-pixel">⚡</div>
+              <div class="author-meta">
+                <span class="author-name">Ananya Sen</span>
+                <span class="author-role">Hackathon Teammate & ML Engineer</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Testimonial Card 3 -->
+          <article class="testimonial-card">
+            <div class="quote-mark">“</div>
+            <p class="testimonial-body">
+              Maya's ability to document complex embedded architectures and write clean, modular C++ code makes her an invaluable pair programmer. Any robotics or software engineering team would be fortunate to have her.
+            </p>
+            <div class="author-block">
+              <div class="author-avatar-pixel">🔧</div>
+              <div class="author-meta">
+                <span class="author-name">Karan Mehta</span>
+                <span class="author-role">Senior Firmware Engineer • AeroRobotics</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ==============================================================
+           WORKSHOP STEP 10: AI Chat Interface Integration
+           Interactive chat window to converse with an AI persona of the portfolio owner.
+           Includes simulated responses, quick prompts, and comments for OpenAI API hook.
+           ============================================================== -->
+      <section id="chat" class="section-wrapper" aria-label="AI Chat Interface">
+        <div class="section-tag">
+          <span class="tag-bracket">[</span> SECTION 08 <span class="tag-bracket">]</span>
+        </div>
+        <h2 class="section-heading">AI CHAT INTERFACE <span class="sub-accent">// TALK TO MAYA-BOT</span></h2>
+        <p class="section-summary">Interact with an AI assistant trained on Maya's engineering background, projects, and technical skills.</p>
+
+        <div class="chat-terminal-container">
+          <!-- Chat Terminal Window Header -->
+          <div class="chat-header">
+            <div class="chat-header-left">
+              <div class="terminal-dots">
+                <span class="tdot tdot-red"></span>
+                <span class="tdot tdot-yellow"></span>
+                <span class="tdot tdot-green"></span>
+              </div>
+              <span class="chat-title">MAYA_AI::NEURAL_CHAT_v2.6</span>
+            </div>
+            <div class="chat-status">
+              <span class="status-dot"></span>
+              <span>ONLINE // READY TO TRANSMIT</span>
+            </div>
+          </div>
+
+          <!-- Quick Suggestion Prompt Chips -->
+          <div class="chat-suggestions">
+            <span class="sugg-label">QUICK PROMPTS:</span>
+            <button class="sugg-btn" onclick="sendQuickPrompt('What are your main programming skills?')">⚡ Skills Overview</button>
+            <button class="sugg-btn" onclick="sendQuickPrompt('Tell me about Project Nova.')">🤖 Project Nova</button>
+            <button class="sugg-btn" onclick="sendQuickPrompt('Are you open for internships and jobs?')">💼 Career / Availability</button>
+            <button class="sugg-btn" onclick="sendQuickPrompt('What is your favorite robotics stack?')">🛠️ Robotics Stack</button>
+          </div>
+
+          <!-- Message Display Stream Area -->
+          <div id="chat-messages" class="chat-messages-area" role="log" aria-live="polite">
+            <!-- Initial Greeting from Maya-AI -->
+            <div class="chat-bubble bot-bubble">
+              <div class="bubble-sender">
+                <span class="sender-avatar">🤖</span>
+                <span class="sender-name">MAYA-AI</span>
+                <span class="sender-time">SYS_TIME</span>
+              </div>
+              <div class="bubble-content">
+                Greetings! I am Maya’s interactive AI avatar. Ask me anything about my robotics prototypes, C++ / Python coding stack, career milestones, or how to get in touch!
+              </div>
+            </div>
+          </div>
+
+          <!-- Chat Input Form -->
+          <!-- NOTE FOR PARTICIPANTS: Check app.js for simulated engine & OpenAI API integration points -->
+          <form id="chat-form" class="chat-input-bar" onsubmit="handleChatSubmit(event)">
+            <label for="chat-user-input" class="visually-hidden">Ask Maya-AI a question</label>
+            <input 
+              type="text" 
+              id="chat-user-input" 
+              class="chat-input" 
+              placeholder="Ask Maya about her projects, robotics, or engineering experience..." 
+              autocomplete="off"
+              required>
+            <button type="submit" id="btn-chat-send" class="btn-chat-send" aria-label="Send message">
+              <span>TRANSMIT</span>
+              <span class="send-glyph">⚡▶</span>
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <!-- ==============================================================
+           WORKSHOP STEP 11: Contact Form with Email API Functionality
+           Fields: Name, Email, Subject, Message.
+           Submit button with proper contrast, comments for Resend/EmailJS API,
+           and confirmation message upon submission.
+           ============================================================== -->
+      <section id="contact" class="section-wrapper" aria-label="Contact Section">
+        <div class="section-tag">
+          <span class="tag-bracket">[</span> SECTION 09 <span class="tag-bracket">]</span>
+        </div>
+        <h2 class="section-heading">CONTACT ME <span class="sub-accent">// INQUIRIES & COLLAB</span></h2>
+        <p class="section-summary">Have a project, research question, or engineering opportunity? Transmit a direct message below.</p>
+
+        <div class="contact-layout">
+          <!-- Left: Direct Info Card -->
+          <div class="contact-info-panel">
+            <h3 class="info-card-title">LET’S BUILD SOMETHING EXTRAORDINARY</h3>
+            <p class="info-card-text">
+              Whether you are looking for an autonomous systems software engineer, want to discuss robotics research, or invite me to a hackathon, my inbox is always open.
+            </p>
+
+            <div class="info-item-list">
+              <div class="info-item">
+                <span class="info-icon cyan">✉️</span>
+                <div>
+                  <span class="info-label">OFFICIAL EMAIL</span>
+                  <a href="mailto:maya.sharma.eng@university.edu" class="info-value">maya.sharma.eng@university.edu</a>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <span class="info-icon purple">📍</span>
+                <div>
+                  <span class="info-label">RESEARCH HUB</span>
+                  <span class="info-value">Dept. of Computer Science & Robotics Lab</span>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <span class="info-icon green">⚡</span>
+                <div>
+                  <span class="info-label">RESPONSE TIME</span>
+                  <span class="info-value">Replies typically within 24 hours</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Terminal Status Card -->
+            <div class="contact-terminal-status">
+              <span class="term-status-title">ENCRYPTED TELEMETRY LINK</span>
+              <span class="term-status-code">CHANNEL::SECURE_TLS_1.3</span>
+            </div>
+          </div>
+
+          <!-- Right: Interactive Contact Form -->
+          <div class="contact-form-panel">
+            <!-- Form Feedback Banner (Hidden until submission) -->
+            <div id="contact-feedback" class="form-feedback-banner" role="alert" style="display: none;"></div>
+
+            <!-- WORKSHOP STEP 11: Form Implementation with Resend API Integration Placeholder -->
+            <form id="contact-form" class="pixel-contact-form" onsubmit="handleContactSubmit(event)">
+              <div class="form-field-group">
+                <label for="contact-name">YOUR NAME / ORGANIZATION <span class="req">*</span></label>
+                <input type="text" id="contact-name" class="pixel-input" placeholder="e.g. Dr. Jane Doe or Tech Corp" required>
+              </div>
+
+              <div class="form-field-group">
+                <label for="contact-email">CONTACT EMAIL ADDRESS <span class="req">*</span></label>
+                <input type="email" id="contact-email" class="pixel-input" placeholder="e.g. jane@techcorp.com" required>
+              </div>
+
+              <div class="form-field-group">
+                <label for="contact-topic">INQUIRY CATEGORY</label>
+                <select id="contact-topic" class="pixel-input select-input">
+                  <option value="Internship / Full-Time Role">💼 Internship / Full-Time Engineering Role</option>
+                  <option value="Robotics Project Collaboration">🤖 Robotics Project Collaboration</option>
+                  <option value="Hackathon / Research Partnership">🏆 Research Partnership</option>
+                  <option value="General Technical Question">⚡ General Technical Inquiry</option>
+                </select>
+              </div>
+
+              <div class="form-field-group">
+                <label for="contact-message">TRANSMISSION MESSAGE <span class="req">*</span></label>
+                <textarea id="contact-message" class="pixel-input textarea-input" rows="5" placeholder="Describe your project, timeline, or opportunity in detail..." required></textarea>
+              </div>
+
+              <button type="submit" id="btn-submit-contact" class="btn-pixel-submit">
+                <span class="btn-submit-text">TRANSMIT MESSAGE</span>
+                <span class="btn-submit-icon">⚡→</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ==============================================================
+         WORKSHOP STEP 12: Social Media Links in the Footer
+         Adheres to pixel art aesthetic, evenly spaced, hover effects,
+         and accessible aria-labels.
+         ============================================================== -->
+    <footer class="site-footer" aria-label="Site Footer">
+      <div class="footer-inner">
+        <div class="footer-top-row">
+          <div class="footer-branding">
+            <span class="footer-glyph">👾</span>
+            <span class="footer-name">MAYA SHARMA</span>
+            <span class="footer-divider">•</span>
+            <span class="footer-tag">SOFTWARE & ROBOTICS PORTFOLIO</span>
+          </div>
+
+          <!-- Social Media Pixel Links -->
+          <nav class="footer-social-nav" aria-label="Social Media Profiles">
+            <ul class="social-links-list">
+              <li>
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="GitHub Profile" title="GitHub">
+                  <span class="social-icon">🐙</span>
+                  <span class="social-name">GitHub</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn Profile" title="LinkedIn">
+                  <span class="social-icon">💼</span>
+                  <span class="social-name">LinkedIn</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Twitter / X Profile" title="X / Twitter">
+                  <span class="social-icon">🐦</span>
+                  <span class="social-name">Twitter</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://discord.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Discord Community" title="Discord">
+                  <span class="social-icon">🎮</span>
+                  <span class="social-name">Discord</span>
+                </a>
+              </li>
+              <li>
+                <a href="mailto:maya.sharma.eng@university.edu" class="social-icon-btn" aria-label="Send Direct Email" title="Email">
+                  <span class="social-icon">✉️</span>
+                  <span class="social-name">Email</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="footer-bottom-row">
+          <p class="footer-copy">
+            © 2026 Maya Sharma. Crafted with Semantic HTML5, CSS Grid, and 16-Bit Pixel Passion.
+          </p>
+          <p class="footer-motto">
+            “Better Engineers Build A Brighter Future.”
+          </p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ==============================================================
+       MODAL 1: Project Detailed Specification & Schematics Modal
+       Activated when clicking project cards
+       ============================================================== -->
+  <div id="project-modal" class="modal-backdrop" onclick="closeProjectModal(event)" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card" onclick="event.stopPropagation()">
+      <div class="modal-bar">
+        <span id="modal-title" class="modal-title">PROJECT SPECIFICATIONS</span>
+        <button class="modal-close-btn" onclick="closeProjectModal()" aria-label="Close Project Modal">✕ [ESC]</button>
+      </div>
+      <div id="modal-body" class="modal-content">
+        <!-- Injected dynamically by app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==============================================================
+       MODAL 2: Fullscreen Lab Visual Image Viewer
+       ============================================================== -->
+  <div id="image-modal" class="modal-backdrop" onclick="closeImageModal()" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-img-card" onclick="event.stopPropagation()">
+      <div class="modal-bar">
+        <span id="image-modal-title" class="modal-title">LAB ARCHIVE VIEWER</span>
+        <button class="modal-close-btn" onclick="closeImageModal()" aria-label="Close Image Modal">✕</button>
+      </div>
+      <div class="modal-img-body">
+        <img id="image-modal-src" src="" alt="Enlarged Visual Preview" class="modal-full-img">
+      </div>
+    </div>
+  </div>
+
+  <!-- External JavaScript Logic -->
+  <script src="app.js"></script>
+</body>
+</html>
